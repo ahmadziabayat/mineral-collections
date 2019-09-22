@@ -1,0 +1,45 @@
+
+<h1>Form</h1>
+<form [formGroup]="mineralForm" (ngSubmit)="OnSubmit(mineralForm.value)">
+
+    <h5 *ngIf="success">Your form is valid!</h5>
+
+    <label>
+      Name:
+      <input type="text" formControlName="firstname">
+      <div *ngIf="submitted && mineralForm.controls['firstname'].errors" class="error">
+        <div *ngIf="mineralForm.controls['firstname'].errors.required">Your name is required</div>
+      </div>
+    </label>
+  
+    <label>
+      Type:
+      <input formControlName="lastname">
+      <div *ngIf="submitted && mineralForm.controls['lastname'].errors" class="error">
+        <div *ngIf="mineralForm.controls['lastname'].errors.required">Type is required</div>
+      </div>
+    </label>
+
+    <label>
+        Address:
+        <input type="email" formControlName="email_address">
+        <div *ngIf="submitted && mineralForm.controls['email_address'].errors" class="error">
+          <div *ngIf="mineralForm.controls['email_address'].errors.required">email is required</div>
+          <div *ngIf="mineralForm.controls['email_address'].errors.email">Email must be a valid email address</div>
+        </div>
+      </label>
+
+    <button type="submit" value="Submit Form"  class="cta">Submit Form</button>
+  
+  </form>
+
+  <div *ngIf="submitted" class="results">
+    <strong>Name:</strong> 
+    <span>{{ mineralForm.controls['firstname'].value }}</span>
+
+    <strong>Type:</strong> 
+    <span>{{ mineralForm.controls['lastname'].value }}</span>
+
+    <strong>Address:</strong> 
+    <span>{{ mineralForm.controls['email_address'].value }}</span>
+  </div>
