@@ -5,27 +5,27 @@
     <h5 *ngIf="success">Your form is valid!</h5>
 
     <label>
-      Name:
-      <input type="text" formControlName="firstname">
-      <div *ngIf="submitted && mineralForm.controls['firstname'].errors" class="error">
-        <div *ngIf="mineralForm.controls['firstname'].errors.required">Your name is required</div>
+      Location:
+      <input type="text" formControlName="collected_in">
+      <div *ngIf="submitted && mineralForm.controls['collected_in'].errors" class="error">
+        <div *ngIf="mineralForm.controls['collected_in'].errors.required">Your name is required</div>
       </div>
     </label>
   
     <label>
       Type:
-      <input formControlName="lastname">
-      <div *ngIf="submitted && mineralForm.controls['lastname'].errors" class="error">
-        <div *ngIf="mineralForm.controls['lastname'].errors.required">Type is required</div>
+      <input formControlName="type">
+      <div *ngIf="submitted && mineralForm.controls['type'].errors" class="error">
+        <div *ngIf="mineralForm.controls['type'].errors.required">Type is required</div>
       </div>
     </label>
 
     <label>
-        Address:
-        <input type="email" formControlName="email_address">
-        <div *ngIf="submitted && mineralForm.controls['email_address'].errors" class="error">
-          <div *ngIf="mineralForm.controls['email_address'].errors.required">email is required</div>
-          <div *ngIf="mineralForm.controls['email_address'].errors.email">Email must be a valid email address</div>
+        Weight:
+        <input type="email" formControlName="weight_in_grams">
+        <div *ngIf="submitted && mineralForm.controls['weight_in_grams'].errors" class="error">
+          <div *ngIf="mineralForm.controls['weight_in_grams'].errors.required">Weight is required</div>
+          
         </div>
       </label>
 
@@ -34,12 +34,12 @@
   </form>
 
   <div *ngIf="submitted" class="results">
-    <strong>Name:</strong> 
-    <span>{{ mineralForm.controls['firstname'].value }}</span>
+    <strong>Location:</strong> 
+    <span>{{ mineralForm.controls['collected_in'].value }}</span>
 
     <strong>Type:</strong> 
-    <span>{{ mineralForm.controls['lastname'].value }}</span>
+    <span>{{ mineralForm.controls['type'].value }}</span>
 
-    <strong>Address:</strong> 
-    <span>{{ mineralForm.controls['email_address'].value }}</span>
+    <strong>Weight:</strong> 
+    <span>{{ mineralForm.controls['weight_in_grams'].value }}</span>
   </div>

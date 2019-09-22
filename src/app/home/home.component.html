@@ -1,8 +1,9 @@
-<h1>List</h1>
+<h1>Mineral List</h1>
 
 <ul *ngIf="mineralList">
-  <li *ngFor="let user of mineralList.data">
-    <img [src]="user.avatar">
-    <p>{{ user.first_name }} {{ user.last_name }}</p>
+  <li *ngFor="let mineral of mineralList">
+    <p>Location: {{mineral.collected_in }}</p> 
+    <p>Type: {{ mineral.type }}</p>
+    <p>Weight: {{mineral.weight_in_grams}}</p>
   </li>
 </ul> 

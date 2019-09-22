@@ -11,9 +11,10 @@ export class HomeComponent implements OnInit {
   constructor(private mineralService: GetMineralService) { }
 
   ngOnInit() {
-    this.mineralService.getData().subscribe(data => {
-      this.mineralList = data;
-    });
+    this.mineralService.getMineralData().subscribe(
+      data =>  this.mineralList = data,
+      err => console.log(err)
+    );
   }
 
 }
