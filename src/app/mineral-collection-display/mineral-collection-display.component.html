@@ -9,6 +9,7 @@
       <input type="text" formControlName="collected_in">
       <div *ngIf="submitted && mineralForm.controls['collected_in'].errors" class="error">
         <div *ngIf="mineralForm.controls['collected_in'].errors.required">Your name is required</div>
+        <div *ngIf="mineralForm.controls['collected_in'].errors.pattern">Invalid Input</div>
       </div>
     </label>
   
@@ -17,6 +18,7 @@
       <input formControlName="type">
       <div *ngIf="submitted && mineralForm.controls['type'].errors" class="error">
         <div *ngIf="mineralForm.controls['type'].errors.required">Type is required</div>
+        <div *ngIf="mineralForm.controls['type'].errors.pattern">Invalid Input</div>
       </div>
     </label>
 

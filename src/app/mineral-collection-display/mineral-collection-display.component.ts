@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   Validator,
   FormGroup,
   FormControl,
   Validators
-} from "@angular/forms";
-import { GetMineralService } from "../get-mineral.service";
+} from '@angular/forms';
+import { GetMineralService } from '../get-mineral.service';
 
 @Component({
-  selector: "app-mineral-collection-display",
-  templateUrl: "./mineral-collection-display.component.html",
-  styleUrls: ["./mineral-collection-display.component.scss"]
+  selector: 'app-mineral-collection-display',
+  templateUrl: './mineral-collection-display.component.html',
+  styleUrls: ['./mineral-collection-display.component.scss']
 })
 export class MineralCollectionDisplayComponent implements OnInit {
   mineralForm: FormGroup;
@@ -24,8 +24,8 @@ export class MineralCollectionDisplayComponent implements OnInit {
     private mineralService: GetMineralService
   ) {
     this.mineralForm = this.formbBuilder.group({
-      collected_in: ['', Validators.required],
-      type: ['', Validators.required],
+      collected_in: ['', [Validators.required, Validators.pattern('^[a-zA-Z]([\w -]*[a-zA-Z])?$')]],
+      type: ['', [Validators.required, Validators.pattern('^[a-zA-Z]([\w -]*[a-zA-Z])?$')]],
       weight_in_grams: ['', [Validators.required]]
     });
   }
